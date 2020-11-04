@@ -4,7 +4,7 @@
                 type="checkbox"
                 class="toggle"
                 v-model="todo.completed"
-        >
+        />
         <label>{{todo.content}}</label>
         <button class="destory" @click="deleteTodo"></button>
     </div>
@@ -72,11 +72,11 @@
         outline none
 
         &:after {
-            content url('../assets/images/round.svg')
+            content url('../../assets/images/round.svg')
         }
 
         &:checked:after {
-            content url('../assets/images/done.svg')
+            content url('../../assets/images/done.svg')
         }
     }
 

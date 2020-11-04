@@ -6,7 +6,7 @@
                 autofocus="autofocus"
                 placeholder="接下去要做什么？"
                 @keyup.enter="handleAdd"
-        >
+        />
         <Item :todo="todo"
               v-for="todo in filteredTodos"
               :key="todo.id"
@@ -37,7 +37,7 @@
                 if (this.filter === 'all') {
                     return this.todos
                 }
-                const completed = this.filter === 'completed'
+                const completed = this.filter === 'completed';
                 return this.todos.filter(todo => completed === todo.completed)
             }
         },
@@ -81,9 +81,6 @@
         border: 0;
         outline: none;
         color: inherit;
-        padding: 6px;
-        border: 1px solid #999;
-        box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
         box-sizing: border-box;
         font-smoothing: antialiased;
         padding: 16px 16px 16px 60px;
