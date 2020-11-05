@@ -960,11 +960,6 @@
         "yargs-parser": "^13.1.2"
     },
     "description": "VUE学习工程",
-    "husky": {
-        "hooks": {
-            "pre-commit": "cnpm run lint"
-        }
-    },
     "repository": {
         "type": "git",
         "url": "git@gitee.com:NuLiing/vue-ssr-tech.git"
