@@ -11,7 +11,7 @@
         {{state}}
       </span>
     </span>
-        <span class="clear" @click="clearAllCompleted">Clear Completed</span>
+        <span class="clear" @click="handleClearAllCompleted">Clear Completed</span>
     </div>
 </template>
 
@@ -25,24 +25,24 @@
             todos: {
                 type: Array,
                 required: true
-            },
+            }
         },
-        data() {
+        data () {
             return {
                 states: ['all', 'active', 'completed']
             }
         },
         computed: {
-            unFinishedTodoLength() {
+            unFinishedTodoLength () {
                 return this.todos.filter(todo => !todo.completed).length
             }
         },
         methods: {
-            clearAllCompleted() {
-                this.$emit("clearAllCompleted")
+            handleClearAllCompleted () {
+                this.$emit('clearCompleted')
             },
-            toggleFilter(state) {
-                this.$emit("toggle", state)
+            toggleFilter (state) {
+                this.$emit('toggle', state)
             }
         }
     }
@@ -96,5 +96,3 @@
         }
     }
 </style>
-
-

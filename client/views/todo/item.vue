@@ -19,10 +19,10 @@
             }
         },
         methods: {
-            deleteTodo() {
+            deleteTodo () {
                 this.$emit('del', this.todo.id)
             },
-            handleToggle(e) {
+            handleToggle (e) {
             }
         }
     }
@@ -99,5 +99,3 @@
         outline none
     }
 </style>
-
-

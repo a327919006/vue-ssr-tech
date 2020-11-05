@@ -5,6 +5,7 @@ const merge = require('webpack-merge')
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const baseConfig = require('./webpack.config.base')
+
 const isDev = process.env.NODE_ENV === 'development';
 
 const devServer = {

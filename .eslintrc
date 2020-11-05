@@ -1,0 +1,19 @@
+{
+    "extends": [
+        "standard",
+        "plugin:vue/essential"
+    ],
+    "plugins": [
+        "html"
+    ],
+//    代码自动检测，webstorm自带，不需要
+//    "parser": "babel-eslint",
+    "rules": {
+        // 缩进问题 0忽略 1warning 2error,
+        "indent": 0,
+        // 事件名驼峰格式,
+        "vue/custom-event-name-casing": 0,
+        // 不允许修改值,
+        "vue/no-mutating-props": 0
+    }
+}

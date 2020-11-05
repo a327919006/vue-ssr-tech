@@ -1,4 +1,7 @@
-const path = require('path');
+const path = require('path')
+const createVueLoaderOptions = require('./vue-loader.config.js')
+
+const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
     mode: process.env.NODE_ENV || 'production',
@@ -10,9 +13,18 @@ const config = {
     },
     module: {
         rules: [
+            // eslint自动检测，webstorm不需要，setting即可
+            /*{
+                test: /\.(vue|js|jsx)$/,
+                loader: 'eslint-loader',
+                exclude: /node_modules/,
+                enforce: 'pre' // 预处理 pre之前预处理 post后处理
+            },*/
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                loader: 'vue-loader',
+                options: createVueLoaderOptions(isDev),
+                exclude: /node_modules/
             },
             {
                 test: /\.jsx$/,
@@ -38,6 +50,6 @@ const config = {
 
         ]
     },
-};
+}
 
-module.exports = config;
+module.exports = config
