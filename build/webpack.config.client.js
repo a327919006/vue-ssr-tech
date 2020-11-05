@@ -1,12 +1,12 @@
-const path = require('path');
-const HTMLPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+const path = require('path')
+const HTMLPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 const merge = require('webpack-merge')
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const baseConfig = require('./webpack.config.base')
 
-const isDev = process.env.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV === 'development'
 
 const devServer = {
     port: 8000,
@@ -16,7 +16,7 @@ const devServer = {
     },
     open: true,
     hot: true,
-};
+}
 
 const defaultPlugins = [
     new webpack.DefinePlugin({
@@ -26,9 +26,9 @@ const defaultPlugins = [
     }),
     new HTMLPlugin(),
     new VueLoaderPlugin()
-];
+]
 
-let config;
+let config
 
 if (isDev) {
     config = merge(baseConfig, {
@@ -40,7 +40,7 @@ if (isDev) {
                     'style-loader',
                     'css-loader',
                     {
-                        loader: "postcss-loader",
+                        loader: 'postcss-loader',
                         options: {
                             sourceMap: true
                         }
@@ -53,7 +53,7 @@ if (isDev) {
         plugins: defaultPlugins.concat([
             new webpack.HotModuleReplacementPlugin(),
         ])
-    });
+    })
 } else {
     config = merge(baseConfig, {
         entry: {
@@ -82,9 +82,14 @@ if (isDev) {
             ]
         },
         plugins: defaultPlugins.concat([
-            new MiniCssExtractPlugin({filename: 'styles.[contentHash:8].css'}),
+            new MiniCssExtractPlugin({ filename: 'styles.[contentHash:8].css' }),
         ]),
         optimization: {
+            splitChunks: {
+                chunks: 'all'
+            }
+        },
+        /*optimization: {
             runtimeChunk: {
                 name: 'vendor'
             },
@@ -97,8 +102,8 @@ if (isDev) {
                     }
                 }
             }
-        }
-    });
+        }*/
+    })
 }
 
-module.exports = config;
+module.exports = config
