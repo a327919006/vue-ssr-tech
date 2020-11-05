@@ -1107,7 +1107,7 @@
     "description": "",
     "husky": {
         "hooks": {
-            "pre-commit": "cnpm run lint"
+            "pre-commit": "npm run lint"
         }
     }
 }
