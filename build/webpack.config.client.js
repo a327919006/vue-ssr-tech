@@ -57,8 +57,7 @@ if (isDev) {
 } else {
     config = merge(baseConfig, {
         entry: {
-            app: path.join(__dirname, '../client/index.js'),
-            vendor: ['vue']
+            app: path.join(__dirname, '../client/index.js')
         },
         output: {
             filename: '[name].[chunkhash:8].js'
@@ -85,6 +84,7 @@ if (isDev) {
             new MiniCssExtractPlugin({ filename: 'styles.[contentHash:8].css' }),
         ]),
         optimization: {
+            runtimeChunk: true,
             splitChunks: {
                 chunks: 'all'
             }
