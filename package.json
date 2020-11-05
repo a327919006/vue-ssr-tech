@@ -1104,5 +1104,10 @@
         "_webpack@5.3.2@webpack": "^5.3.2",
         "extend-shallow": "^3.0.2"
     },
-    "description": ""
+    "description": "",
+    "husky": {
+        "hooks": {
+            "pre-commit": "cnpm run lint"
+        }
+    }
 }
