@@ -56,7 +56,7 @@
             toggleFilter (state) {
                 this.filter = state
             },
-            clearCompleted () {
+            clearAllCompleted () {
                 this.todos = this.todos.filter(todo => !todo.completed)
             }
         }

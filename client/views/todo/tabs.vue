@@ -11,7 +11,7 @@
         {{state}}
       </span>
     </span>
-        <span class="clear" @click="handleClearAllCompleted">Clear Completed</span>
+        <span class="clear" @click="clearAllCompleted">Clear Completed</span>
     </div>
 </template>
 
@@ -38,8 +38,8 @@
             }
         },
         methods: {
-            handleClearAllCompleted () {
-                this.$emit('clearCompleted')
+            clearAllCompleted () {
+                this.$emit('clearAllCompleted')
             },
             toggleFilter (state) {
                 this.$emit('toggle', state)
