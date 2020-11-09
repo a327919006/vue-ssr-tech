@@ -2,8 +2,16 @@
     <div id="app">
         <div id="cover"></div>
         <Header></Header>
-        <Todo></Todo>
+<!--        <router-link to="/app/123">app</router-link>-->
+        <router-link to="/app">app</router-link>
+        <router-link to="/login">login</router-link>
+        <!--<Todo></Todo>-->
+        <!--transition用于切换vue的时候动画效果，fade动画定义在global.styl，根据名称对应-->
+        <transition name="fade">
+            <router-view></router-view>
+        </transition>
         <Footer></Footer>
+        <router-view name="aa"></router-view>
     </div>
 </template>
 
@@ -17,6 +25,9 @@
             Header,
             Footer,
             Todo
+        },
+        mounted () {
+            console.info('route=', this.$route)
         }
     }
 </script>

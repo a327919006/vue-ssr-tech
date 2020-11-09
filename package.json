@@ -16,7 +16,8 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "vue": "^2.6.12"
+        "vue": "^2.6.12",
+        "vue-router": "latest"
     },
     "devDependencies": {
         "_accepts@1.3.7@accepts": "^1.3.7",

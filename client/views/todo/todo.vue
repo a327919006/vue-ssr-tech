@@ -1,11 +1,11 @@
 <template>
     <section class="real-app">
         <input
-                type="text"
-                class="add-input"
-                autofocus="autofocus"
-                placeholder="接下去要做什么？"
-                @keyup.enter="handleAdd"
+            type="text"
+            class="add-input"
+            autofocus="autofocus"
+            placeholder="接下去要做什么？"
+            @keyup.enter="handleAdd"
         />
         <Item :todo="todo"
               v-for="todo in filteredTodos"
@@ -13,6 +13,7 @@
               @del="deleteTodo"
         />
         <Tabs :filter="filter" :todos="todos" @toggle="toggleFilter" @clearAllCompleted="clearAllCompleted"/>
+        <!--<router-view></router-view>-->
     </section>
 </template>
 
@@ -22,6 +23,10 @@
 
     let id = 0
     export default {
+        // props: ['id'],
+        // mounted () {
+        //     console.info('todoid=', this.id)
+        // },
         data () {
             return {
                 todos: [],
