@@ -1,7 +1,9 @@
 import Vue from 'vue'
 
 const app = new Vue({
+    // 如果不写el，就不知道界面要挂载到哪里，或者用$mount
     el: '#root',
+    // html代码
     template: '<div>{{text}}</div>',
     data: {
         text: 0,
@@ -15,6 +17,7 @@ const app = new Vue({
     // }
 })
 
+// 定义挂载到template.html的#root上
 // app.$mount('#root')
 
 let i = 0
