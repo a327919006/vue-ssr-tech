@@ -22,6 +22,7 @@ const defaultPlugins = [
         }
     }),
     new HTMLPlugin({
+        // 定义默认模板
         template: path.join(__dirname, 'template.html')
     }),
     new VueLoaderPlugin()
