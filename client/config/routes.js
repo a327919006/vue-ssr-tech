@@ -1,5 +1,5 @@
-import Todo from '../views/todo/todo.vue'
-import Login from '../views/login/login.vue'
+// import Todo from '../views/todo/todo.vue'
+// import Login from '../views/login/login.vue'
 
 export default [
     {
@@ -12,7 +12,7 @@ export default [
         // 地址上带参数时设为true
         // props: true,
         // 地址对应组件
-        component: Todo,
+        component: () => import('../views/todo/todo.vue'),
         // 一个地址显示多个组件
         // components: {
         //     default: Todo,
@@ -23,6 +23,11 @@ export default [
             title: 'title1',
             description: 'aaa'
         },
+        // 此方法路由守卫
+        beforeEnter (to, form, next) {
+            console.log('app beforeEnter')
+            next()
+        }
         // 需要在todo.vue里声明<router-view></router-view>
         // children: [
         //     {
@@ -33,6 +38,6 @@ export default [
     },
     {
         path: '/login',
-        component: Login
+        component: () => import('../views/login/login.vue')
     }
 ]

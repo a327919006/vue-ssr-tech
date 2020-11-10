@@ -23,6 +23,24 @@
 
     let id = 0
     export default {
+        beforeRouteEnter (to, form, next) {
+            console.log('todo before enter')
+            next(vm => {
+                // vm即this对象
+                console.log('after enter vm=', vm)
+            })
+        },
+        // /app/:id，访问同个组件时才会触发
+        beforeRouteUpdate (to, form, next) {
+            console.log('todo update enter')
+            next()
+        },
+        beforeRouteLeave (to, form, next) {
+            console.log('todo leave enter')
+            if (global.confirm('确定离开此页面？')) {
+                next()
+            }
+        },
         // props: ['id'],
         // mounted () {
         //     console.info('todoid=', this.id)
