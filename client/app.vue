@@ -3,6 +3,9 @@
         <div id="cover"></div>
         <Header></Header>
         <!--        <router-link to="/app/123">app</router-link>-->
+        <p>{{count}}</p>
+        <p>{{fullName}}</p>
+        <p>{{text}}</p>
         <router-link to="/app">app</router-link>
         <router-link to="/login">login</router-link>
         <!--<Todo></Todo>-->
@@ -16,6 +19,12 @@
 </template>
 
 <script>
+    import {
+        mapState,
+        mapGetters,
+        mapActions,
+        mapMutations
+    } from 'vuex'
     import Header from './layout/header.vue'
     import Footer from './layout/footer.vue'
     // import Todo from './views/todo/todo.vue'
@@ -26,8 +35,55 @@
             Footer,
             // Todo
         },
+        methods: {
+            ...mapActions(['updateCountAsync', 'a/add']),
+            ...mapMutations(['updateCount', 'a/updateText'])
+        },
         mounted () {
             console.info('route=', this.$route)
+            console.info('store=', this.$store)
+            console.info('textPlus=', this.textPlus)
+            let i = 1
+            // this.$store.dispatch('updateCountAsync', {
+            //     num: 5,
+            //     time: 1000
+            // })
+            // 简化上面代码
+            this.updateCountAsync({
+                num: 5,
+                time: 1000
+            })
+            this['a/updateText']('ddddd')
+            this['a/add'](113)
+
+            setInterval(() => {
+                // this.$store.commit('updateCount', i++)
+                // this.$store.commit('updateCount', {
+                //      num: i++,
+                //      num2: 123
+                //  })
+                this.updateCount({
+                    num: i++,
+                    num2: 123
+                })
+            }, 1000)
+        },
+        computed: {
+            // ...mapState(['count']),
+            ...mapState({
+                count: (state) => state.count,
+                text: (state) => state.a.text
+            }),
+            // count () {
+            //     return this.$store.state.count
+            // },
+            ...mapGetters({
+                fullName: 'fullName',
+                textPlus: 'a/textPlus'
+            })
+            // fullName () {
+            //     return this.$store.getters.fullName
+            // }
         }
     }
 </script>

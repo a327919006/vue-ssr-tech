@@ -12,6 +12,7 @@ export default [
         // 地址上带参数时设为true
         // props: true,
         // 地址对应组件
+        // component: Todo,
         component: () => import('../views/todo/todo.vue'),
         // 一个地址显示多个组件
         // components: {
@@ -38,6 +39,7 @@ export default [
     },
     {
         path: '/login',
+        // component: Login
         component: () => import('../views/login/login.vue')
     }
 ]
